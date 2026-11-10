@@ -1,0 +1,16 @@
+appId: com.example.l4d2am
+productName: l4d2am
+files:
+    - 'out/**/*'
+    - 'package.json'
+    - 'resources/**/*'
+win:
+    icon: resources/icon.ico
+    target: nsis
+mac:
+    icon: resources/icon.icns
+    target: dmg
+linux:
+    icon: resources/icon.png
+    target: AppImage
+    category: Utility

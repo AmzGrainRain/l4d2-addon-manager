@@ -1,0 +1,123 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+    --color-accent: var(--color-light-500);
+    --color-light-50: #ffffff;
+    --color-light-100: #f5f5f5;
+    --color-light-500: #ef4444;
+    --color-light-600: #dc2626;
+    --color-light-950: #000000;
+    --color-success: #64ff58;
+    --color-warning: #ffda58;
+    --color-error: #ff5858;
+    --drop-shadow-accent: 0 0 4px var(--color-accent);
+}
+
+@utility panel-* {
+    @apply border border-light-950/10 bg-[--value(--color-*)] rounded overflow-clip;
+}
+
+@utility scrollbar-hidden {
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+@utility modal-transform-container {
+    @apply perspective-midrange transform-3d z-20;
+}
+
+:root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    color: var(--color-light-950);
+    background: transparent;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --color-light-50: #202124;
+    --color-light-100: #151619;
+    --color-light-950: #f5f5f5;
+}
+
+:root[data-accent-color='orange'] {
+    --color-light-500: #ff754b;
+    --color-light-600: #ff6233;
+}
+
+:root[data-accent-color='pink'] {
+    --color-light-500: #ec4899;
+    --color-light-600: #db2777;
+}
+
+:root[data-accent-color='purple'] {
+    --color-light-500: #a855f7;
+    --color-light-600: #9333ea;
+}
+
+:root[data-accent-color='indigo'] {
+    --color-light-500: #6366f1;
+    --color-light-600: #4f46e5;
+}
+
+:root[data-accent-color='blue'] {
+    --color-light-500: #3b82f6;
+    --color-light-600: #2563eb;
+}
+
+:root[data-accent-color='cyan'] {
+    --color-light-500: #06b6d4;
+    --color-light-600: #0891b2;
+}
+
+:root[data-accent-color='teal'] {
+    --color-light-500: #14b8a6;
+    --color-light-600: #0d9488;
+}
+
+:root[data-accent-color='green'] {
+    --color-light-500: #22c55e;
+    --color-light-600: #16a34a;
+}
+
+:root[data-accent-color='lime'] {
+    --color-light-500: #84cc16;
+    --color-light-600: #65a30d;
+}
+
+:root[data-accent-color='amber'] {
+    --color-light-500: #f59e0b;
+    --color-light-600: #d97706;
+}
+
+body {
+    user-select: none;
+}
+
+#app {
+    @apply w-screen h-screen p-2;
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.16s, transform 0.16s;
+}
+
+.page-enter-from,
+.page-leave-to {
+    opacity: 0;
+    transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-enter-active,
+    .page-leave-active {
+        transition: none;
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "name": "l4d2am",
+    "version": "0.1.0",
+    "description": "Electron, Vue and TypeScript desktop application",
+    "private": true,
+    "type": "module",
+    "main": "./out/main/index.mjs",
+    "scripts": {
+        "dev": "electron-vite dev",
+        "start": "electron-vite preview",
+        "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+        "typecheck:web": "vue-tsc --noEmit -p tsconfig.web.json --composite false",
+        "typecheck": "pnpm typecheck:node && pnpm typecheck:web",
+        "build": "pnpm typecheck && electron-vite build",
+        "build:unpack": "pnpm build && electron-builder --dir",
+        "build:win": "pnpm build && electron-builder --win",
+        "build:mac": "pnpm build && electron-builder --mac",
+        "build:linux": "pnpm build && electron-builder --linux"
+    },
+    "dependencies": {
+        "@archiver/archiver": "^0.3.0",
+        "pinia": "^3.0.4",
+        "steamworks-ffi-node": "0.10.4",
+        "vue": "^3.5.26",
+        "vue-i18n": "^11.4.18",
+        "vue-router": "^5.0.1"
+    },
+    "devDependencies": {
+        "@electron-toolkit/tsconfig": "^2.0.0",
+        "@tailwindcss/vite": "^4.1.18",
+        "@types/node": "^22.20.3",
+        "@vitejs/plugin-vue": "^6.0.9",
+        "electron": "^44.5.1",
+        "electron-builder": "^26.4.0",
+        "electron-vite": "^5.0.0",
+        "tailwindcss": "^4.1.18",
+        "typescript": "^6.0.2",
+        "vite": "^7.3.1",
+        "vue-icons-plus": "^0.1.9",
+        "vue-tsc": "^3.2.2"
+    },
+    "engines": {
+        "node": ">=22.12.0"
+    },
+    "packageManager": "pnpm@10.33.3",
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "electron",
+            "esbuild",
+            "koffi"
+        ]
+    }
+}

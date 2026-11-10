@@ -1,0 +1,11 @@
+node_modules
+out
+dist
+build
+coverage
+.vite
+*.log
+.DS_Store
+.vscode
+settings.json
+steamworks_sdk/redistributable_bin/
